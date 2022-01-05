@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // JS의 모든 객체는 부모 객체와 연결되어 있다고 한다. 자바도 모든 객체가 Object랑 연결되어 있지.
+        // 부모 객체의 property를 상속받듯이 쓸 수 있다고 하네. (상속받듯이인가, 아니면 실제로 상속받는건가? 상속받는다는 가정이 더 합리적이긴 한데..)
+        
+        // JS에서 이런 부모 객체를 '프로토타입 (객체)'라고 부른다고 한다!
+        
+        let alice = {
+            name : 'alice',
+            age : 'young',
+
+            toString(){
+                return this.name+" "+this.age;
+            }
+        };
+
+        // 자바랑 똑같네
+        // 기본적으로 toString() 지원하긴 하는데.. 오버라이딩해서 덮어쓸 수도 있네
+        // 뭐 중요한 건 toString()이 'alice'객체의 프로토타입(부모?)에 이미 정의되어 있다고..
+        console.log(alice.toString());
+
+        console.log(alice.__proto__);
+
+        console.log(alice.valueOf(), alice);
+
+        console.log(__proto__, window.__proto__);
+
+        // 객체는 자신의 프로토타입을 __proto__라는 숨겨진 property로 연결하고 있다고 함...
+        // 객체 리터럴(리터럴 표기법)으로 생성한 객체의 프로토타입은 Object.prototype이라고 함. 뭐, 자바랑 똑같네
+        
+    </script>
+    
+</body>
+</html>
