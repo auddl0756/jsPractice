@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 배열이 아닌 일반 객체에 length property가 있으면 유사 배열 객체(array-like object)라고 한다..
+        // 유사 배열 객체에 apply()를 적용하면 배열의 메서드들을 활용하는 것이 가능하다....???
+        
+        let array_like_object = {length : 1};
+        
+        // array_like.push(1); //makes error
+        Array.prototype.push.apply(array_like_object,['a','b','c']);
+
+
+    </script>
+</body>
+</html>
