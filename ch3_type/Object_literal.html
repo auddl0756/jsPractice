@@ -17,7 +17,8 @@
             friends : new Array('friend1','friend2'),
             'full-name' : 'strange countrys alice',
             
-            getName() { // this.name해야 이 객체의 name 속성의 값을 가져오네. 그냥 name이라고 하면 못 알아듣네.. 
+            getName() { 
+                // this.name해야 이 객체의 name 속성의 값을 가져오네. 그냥 name이라고 하면 못 알아듣네.. 
                 return this.name; 
             },     
             setName(name) {
@@ -37,6 +38,11 @@
         //worker.full-name으로 접근하면 빼기로 인식해서 NAN 값이 나옴.
         console.log(worker['full-name']);
         
+        delete worker.hobby;    // property 지우는 거라는데.. 이 방법 뿐인지..?
+
+        for(property in worker){
+            console.log('for in loop --- ',property, worker[property]);
+        }
 
     </script>
     
