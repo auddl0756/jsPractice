@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //객체 생성 방법 1 : Object() 생성자 함수 이용
+
+        let post = new Object();
+
+        post.title = 'good js';
+        post.id = 1;
+        post.content = 'good js really';
+        
+        let writer = new Object();
+        writer.name = 'leemr';
+        writer.id = 1;
+
+        post.writer = writer;
+        
+        console.log(typeof post);
+        console.log(post);
+
+        console.log(post.writer);
+
+    </script>
+    
+</body>
+</html>
