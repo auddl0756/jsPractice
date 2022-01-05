@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr = [];
+        let obj = {};
+
+        arr.push(1);
+        arr.push('str');
+
+        obj.num = 1;
+        obj.str = 'str';
+
+        console.log(arr,obj);
+
+        console.log(typeof arr, typeof obj);    // both are object
+
+        // array와 object는 프로토타입이 다르다..!
+        console.log(arr.__proto__, Array.prototype);
+        console.log(obj.__proto__, Object.prototype);
+
+        // 배열도 객체라서 property 추가 가능하다! 
+        // 하지만 length 속성은 프로퍼티 추가한다고 변하지 않음.
+        arr.name = 'sample arr';  
+
+        // 배열은 Array 프로토타입이 부모인데, Array프로토타입은 Object가 부모다.
+        // 그러니까 배열이 객체의 프로토타입을 다 포함하고 자신만의 추가 기능이 있는거지..
+        
+        arr.push(100); 
+        arr.push(200);
+
+        console.log(arr);
+        arr.splice(0,1);    // 원소 삭제 시 splice(시작인덱스, 삭제할 갯수, 대체할 원소값들...);
+        console.log(arr);
+
+    </script>
+    
+</body>
+</html>
