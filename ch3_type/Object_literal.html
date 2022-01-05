@@ -15,6 +15,7 @@
             gender : 'male',
             hobby : 'exercise',
             friends : new Array('friend1','friend2'),
+            'full-name' : 'strange countrys alice',
             
             getName() { // this.name해야 이 객체의 name 속성의 값을 가져오네. 그냥 name이라고 하면 못 알아듣네.. 
                 return this.name; 
@@ -28,7 +29,14 @@
         console.log(worker.getName());
         worker.setName('changed_name');
         
-        console.log(worker.getName(),worker.name);
+        // 대괄호로 객체의 property에 접근하면 property 이름을 문자열로 만들어야 한다.
+        // 예를 들어 아래의 worker[name]으로 호출하면 undefined 값이 된다. 
+        console.log(worker.getName(),worker.name,worker['name']);
+
+        //property 이름이 표현식이거나 예약어면 대괄호([])로 접근해야 함.
+        //worker.full-name으로 접근하면 빼기로 인식해서 NAN 값이 나옴.
+        console.log(worker['full-name']);
+        
 
     </script>
     
