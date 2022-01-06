@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 함수 선언문 형태로 선언된 함수는 코드의 맨 처음에 있는 것과 같게 된다.
+        // 그래서 add(1,1)은 정상 동작한다.
+        // 이를 함수 호이스팅이라 한다.
+        console.log(add(1,1));  
+
+        function add(x,y){
+            return x+y;
+        }
+
+        console.log(add(2,2));
+
+
+        // 함수 표현식 형태로 작성된 함수는 호이스팅 되지 않는다.
+        // 그래서 adder(-1,-1)은 referenceError가 발생한다.
+        console.log(adder(-1,-1));
+        
+        let adder = function(x,y){
+            return x+y;
+        }
+
+        console.log(adder(-2,-2));
+
+    </script>
+    
+</body>
+</html>
