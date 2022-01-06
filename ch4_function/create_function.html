@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function get_sum(arr){
+            let sum = 0;
+            for(val of arr){
+                sum += val;
+            }
+            return sum;
+        }
+
+        const arr = [1,2,3,4];
+        
+        console.log(get_sum(arr));
+
+        // 함수 표현식
+        // 함수 리터럴로 함수 만들고, 생성된 함수를 변수에 할당하여 함수를 생성하는 방식이라고 함....
+        // 여기에서 funcVar이 함수를 참조하는 역할을 하는 변수임. 참조값(주소?)을 가짐.
+        const funcVar = function (a,b){
+            return a+b;
+        }
+
+        console.log(funcVar(1,1));
+        console.log(funcVar('straw','berry'));
+
+        
+        //factorial 함수 짜보기 / 익명 함수 사용
+        let factorial = function(n){
+            if(n <= 1){
+                return 1;
+            }else{
+                return factorial(n-1)*n;
+            }
+        }
+
+        console.log(factorial(5));
+
+        //factorial 함수 / 이름 있는 함수 사용
+        let factorialvar = function factorial2(n){
+            if(n <=1 ){
+                return 1;
+            }else{
+                return factorial2(n-1)*n;
+            }
+        }
+
+        console.log(factorialvar(5));
+
+
+    </script>
+</body>
+</html>
