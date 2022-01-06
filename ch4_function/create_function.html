@@ -54,6 +54,15 @@
         console.log(factorialvar(5));
 
 
+        // 3. 함수 생성자 Fuction()을 통해 함수 생성하기
+        // 함수 선언문, 리터럴 방식도 내부적으로 Fuction() 생성자 함수로 호출된다고 함..
+        // 근데 함수 바디를 문자열 형식으로 주는게 참 이상해서, Function() 통해 함수를 직접 생성하긴 불편할 듯
+        let factorial3 = new Function('n','if(n <= 1) return 1; else return n* factorial3(n-1);');
+        console.log(factorial3(5)); 
+
+        
+
+
     </script>
 </body>
 </html>
