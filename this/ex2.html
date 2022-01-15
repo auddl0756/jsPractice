@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        document.addEventListener('DOMContentLoaded',init);
+
+        function init(){
+            //일반 함수
+            function add(a,b){
+                        console.log(this);
+                        return a+b;
+            }
+            add(1,1);
+
+            //객체 내의 메서드
+            let obj = {
+                name : 'sample',
+                getName : function(){
+                    console.log(this);
+                    return this.name;
+                }
+            };
+
+            obj.getName();
+
+            //생성자 함수
+            function Document(title){
+                this.title =title;
+                console.log(this);
+            }
+
+            let doc = new Document('sample title');
+            
+
+            var btn = document.querySelector('#samplebtn');
+            // btn.addEventListener('click',function(){
+            //     console.log('clicked, this = ',this);
+            // });
+
+            btn.addEventListener('click',function(){
+                console.log(this);
+            }.bind(this));
+        }
+        
+
+    </script>
+
+    <button id='samplebtn'>click to test this binding</button>
+    
+</body>
+</html>
