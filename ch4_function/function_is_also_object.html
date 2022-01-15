@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        function add(x,y){
+            return x+y;
+        }
+        
+        // 함수도 객체라도 함.
+        // 그래서 함수도 객체처럼 property를 가질 수 있음. 
+        // 리터럴로 생성도 가능
+        add.sum = add(3,2);
+        add.status = 'OK';
+
+        console.log(add.sum,add.status);
+
+        // JS에서 함수는 일급 객체라고 함.. 
+        //  -> 리터럴에 의해 생성 가능, 프로퍼티 동작 생성 가능, 함수의 인자로 전달 가능, 함수의 리턴값으로 리턴 가능 등..
+        //  이런 조건 만족하면 일급 객체라고 부른다고 함...
+        // 함수가 일급 객체라서 일반 객체처럼 값으로 취급된다는데... 무슨 말인지..?
+        
+        let num1 = 100;
+        let numVar  =function(){ return 100; }
+        console.log(numVar());
+
+        let obj = {};
+        obj.ret200Func = function(){ return 200; }
+        console.log(obj.ret200Func());
+
+        // 함수를 함수의 argument로 전달
+        let funcVar = function(func){
+            func();
+        };
+
+        funcVar(function(){
+            console.log('this function is used as argument of funcVar, and funcVar execute this function in his function body');
+        })
+
+
+    </script>
+    
+</body>
+</html>
