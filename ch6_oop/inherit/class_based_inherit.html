@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Notebook(name){
+            this.name = name;
+        }
+
+        Notebook.prototype.get_name = function(){
+            return this.name;
+        }
+
+        Notebook.prototype.set_name = function(name){
+            this.name =name;
+        }
+
+        function Mac(name){
+            this.name = name;
+        }
+
+        let notebook = new Notebook('Notebook');
+
+        // Mac.prototype = Notebook;
+        Mac.prototype = notebook;
+
+        let mac = new Mac('mac');
+        
+        console.log(mac);
+        // console.log(mac.name, mac.get_name());   
+        
+    </script>
+    
+</body>
+</html>
