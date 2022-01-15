@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Person(name){
+            this.name = name;
+        }
+
+        Person.prototype.get_name = function(){
+            return this.name;
+        }
+
+        Person.prototype.set_name = function(){
+            return this.name;
+        }
+
+        let menu1 = new Person('menu1');
+        let menu2 = new Person('menu2');
+
+        console.log(menu1.get_name(), menu2.get_name());
+        console.log(menu1.get_name == menu2.get_name);
+
+    </script>
+</body>
+</html>
