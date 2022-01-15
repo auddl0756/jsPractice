@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // js에서 객체 생성하는 방식은 객체 리터럴 방식, 생성자 함수 2가지 방식이 있다.
+        // 기존 함수에 new 연산자를 붙이면 생서자 함수로 동작한다고 함....
+        // 기존 함수와 생성자 함수(new 붙은)의 차이점은 this 바인딩 방식만 다르다고 함..
+         
+        let Product = function (name,price){
+            this.name = name;
+            this.price = price;
+
+            //return this를 안 하면 this로 바인딩한 빈 객체가 자동으로 리턴된다.
+            return this; 
+
+            //다른 객체를 리턴하면 다른 객체가 리턴된다...
+            // return {key : 'strange'};
+        };
+
+        let keyboard = new Product('magic keyboard',110);
+       
+        console.log(keyboard);
+    </script>
+    
+</body>
+</html>
