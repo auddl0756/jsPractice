@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //뭐 요약하면 this는 호출한 객체라는거네.
+        //객체의 메서드 호출해도 호출한 객체에 바인딩되고
+        //그냥 함수를 호출해도 윈도우 전역 객체에 바인딩된다고 하니까 
+
+        function test1(){
+            let value = 100;
+
+            let my_object = {
+                value : 1,
+                func1 : function(){
+                    this.value +=1; //이 this는 my_object겠지
+                    console.log('in function 1, this.value = ',this.value);
+                    
+                    func2 = function(){
+                        
+                        //이 this는 my_object가 아니다!!!!! 왜냐하면 js에서 내부 함수는 함수 호출로 취급되기 때문이라고 한다...
+                        //my_object.func2()라고 호출하고 있지 않기 때문에 뭐 타당하긴 하네..
+                        this.value +=1; 
+                        
+                        console.log('in function 2, this.value = ',this.value);
+
+                        func3 = function(){
+                            this.value +=1;
+                            console.log('in function 3, this.value = ',this.value);
+                        }
+
+                        func3();
+                    }   
+
+                    func2();
+                }
+            };
+
+            my_object.func1();
+        }
+
+        ///////////////////////
+
+        //내부함수가 this를 알지 못하는 문제 해결
+        // =>  변수만들고 this 저장하기. 보통 that이라 명명한다고 함..
+        // 뭐 내부 scope에서 외부 scope의 변수는 참조가능하니까... 이렇게 해도 되겠다
+        
+        //대충 알기론 bind 메서드가 있고, arrow 함수도 this binding 문제 해결해주긴 하는데.. 정확한 원리는 잘 몰라서..
+        function test2(){
+            let value = 100;
+
+            let my_object = {
+                value : 1,
+                func1 : function(){
+                    this.value +=1; //이 this는 my_object겠지
+                    console.log('in function 1, this.value = ',this.value);
+                    
+                    let that = this;
+                    func2 = function(){
+                        
+                        //이 this는 my_object가 아니다!!!!! 왜냐하면 js에서 내부 함수는 함수 호출로 취급되기 때문이라고 한다...
+                        //my_object.func2()라고 호출하고 있지 않기 때문에 뭐 타당하긴 하네..
+                        // this.value +=1; 
+                        that.value +=1;
+
+                        console.log('in function 2, that.value = ',that.value);
+
+                        func3 = function(){
+                            // this.value +=1;
+                            that.value +=1;
+                            console.log('in function 3, that.value = ',that.value);
+                        }
+
+                        func3();
+                    }   
+
+                    func2();
+                }
+            };
+
+            my_object.func1();
+        }
+
+        ///////
+        test1();
+        test2();
+        
+    </script>
+</body>
+</html>
