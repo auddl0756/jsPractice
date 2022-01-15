@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //함수 역시 객체라고 함.. + 추가로 함수 객체만의 프로퍼티가 있다고 함..
+        
+        function collectNames(children){
+            let res = [];
+            for(let child of children){
+                res.push(child.name);
+            }
+
+            return res;
+        }
+        
+        //name,arguments,caller,__proto__,length 확인 가능하긴 한데...
+        console.dir(collectNames);
+        
+        //함수 name property
+        console.log(collectNames.name);
+
+        console.log(collectNames([{name : 'leemr'},{name : 'park'}]));
+        
+        //함수 파라미터 개수
+        console.log(collectNames.length);
+        
+        //prototype 프로퍼티와 [[Prototype]]은 다른 것이다. 혼동하지 말라.
+         
+    </script>
+</body>
+</html>
