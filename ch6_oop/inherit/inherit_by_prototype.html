@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function create_object(parent){
+            function F() {}
+            F.prototype = parent;
+            return new F();
+        }
+
+        // let child = create_object(Object);
+        // console.log(child);
+
+        let computer = {
+            cpu : 'i5',
+            memory : '8gb',
+            disk : 'ssd 256gb'
+        };
+
+        let mac = create_object(computer);
+        console.log(mac);
+
+        mac.cpu = 'i7';
+        mac.memory = '16gb';
+        mac.disk = 'ssd 256gb';
+
+        console.log(mac);
+
+    </script>
+    
+</body>
+</html>
