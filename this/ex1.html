@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // this 안 쓰고 객체 가리키기
+        const circle = {
+            radius : 5,
+            getPerimeter : function(){
+                return 2 * Math.PI * circle.radius;
+            }
+        };
+
+        console.log(circle.getPerimeter());
+
+
+        // this를 안 쓸수 없는 상황 : 생성자로 객체 생성할 때 
+       function Circle(radius){
+            this.radius = radius;
+       }
+
+       Circle.prototype.getPerimeter = function(){
+           return 2 * Math.PI * this.radius;
+       };
+
+       let circle2 = new Circle(5);
+       console.log(circle2.getPerimeter());
+
+       // 생성자를 정의하는 시점은 객체를 생성하기 전이라서 
+       // this를 안쓰고 객체를 바로 가리키는 것처럼 객체를 식별할 수 없다.
+       // 그래서 js는 자신이 속한 객체를 가리키기 위해 this라는 키워드를 제공한다!!
+       // this는 자신이 속한, 또는 미래에 생성할 객체를 가리키는 자기 참조 변수다..!
+
+       // this가 가리키는 값( == this 바인딩이라 불리는 것)은 함수 호출 방식에 의해 동적으로 결정된다..! 
+       // (함수 vs 메서드 호출이던가.. 뭐 호출한 쪽이 누군지에 의해 결정되는 거였지)
+       
+
+    </script>
+    
+</body>
+</html>
