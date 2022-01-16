@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const x = 1;
+        const y = 2;
+
+        function foo(a) {
+            const x = 10;
+            const y = 20;
+
+            console.log(a + x + y);
+        }
+
+        foo(100);
+
+        console.log(x + y);
+
+        // 1. 전역스코프 
+        //  평가 - const x ,y, foo
+        //  실행 - x=1,y=2,foo(100);
+
+        // 2. 함수스코프
+        //  함수 실행문으로 들어가면..
+        //  평가 - a,x,y,arguments,this 바인딩
+        //  실행 - x=10,y=20, console.log(a+x+y) 
+        //        : console을 scope chain 통해 검색? 전역 객체 스코프를 검색, log 속성은 console의 프로토타입 체인을 통해 검색..
+        //  함수 실행 끝나면 다시 전역 스코프로 돌아가서 순차적으로 실행..
+
+    </script>
+
+</body>
+
+</html>
