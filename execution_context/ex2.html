@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //스택을 통해 코드 실행 순서를 완벽히 제어 가능하다! (실행 컨텍스트 push,pop하는 스택을 실행 컨텍스트 스택이라 부름)
+
+        const x = 1;
+
+        function f1(){
+            const y =1;
+
+            function f2(){
+                const z = 1;
+
+                console.log(x+y+z);
+            }
+
+            f2();
+        }
+
+        f1();
+
+    </script>
+    
+</body>
+</html>
